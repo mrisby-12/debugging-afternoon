@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import './ShoppingCart.css';
 
 class ShoppingCart extends Component {
-    costructor(props) {
+    constructor(props) {
         super(props);
 
         this.state = {
@@ -17,8 +17,8 @@ class ShoppingCart extends Component {
     }
 
     render() {
-        let shoppingCartDisplay = this.state.shoppingCart.map((element, index) => {
-            return (
+        console.log(this.props)
+        let shoppingCartDisplay = this.state.shoppingCart.map((element, index) => (
                 <div className="shopping-cart-product-container" key={index}>
                     <img src={element.image} alt="" />
                     <div className="shopping-cart-info">
@@ -30,10 +30,11 @@ class ShoppingCart extends Component {
                     </div>
                 </div>
             )
-        })
+        )
+        console.log(shoppingCartDisplay)
         return (
             <div className="shopping-cart-container">
-                {shoppingCartDisplay[0] ? 
+                {shoppingCartDisplay.length > 0 ? 
                 shoppingCartDisplay
                 : <div className="go-buy-something"><h1>Your shopping cart is empty!  Go buy something!</h1></div>}
             </div>
